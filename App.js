@@ -38,8 +38,9 @@ class App extends Component {
   }
 
   render() {
+    const timestamp = Date.now();
     const views = this.state.colors.map( color => (
-      <View key={ color } style={{ flex: 1, backgroundColor: color }} />
+      <View key={ timestamp } style={{ flex: 1, backgroundColor: color }} />
     ));
 
     return (
