@@ -12,27 +12,39 @@ import {
   View
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-type Props = {};
-export default class App extends Component<Props> {
+    this.state = {
+      colors: [
+        '#FF0000',
+        '#FF7F00',
+        '#FFFF00',
+        '#00FF00',
+        '#0000FF',
+        '#4B0082',
+        '#9400D3'
+      ]
+    }
+  };
+
+  componentDidMount() {
+    const interval = setInterval(() => {
+      const lastColor = this.state.colors.slice(-1);
+      const listWithoutLastColor = this.state.colors.slice(0, -1);
+      this.setState({ colors: lastColor.concat(listWithoutLastColor) });
+    }, 1500);
+  }
+
   render() {
+    const views = this.state.colors.map( color => (
+      <View key={ color } style={{ flex: 1, backgroundColor: color }} />
+    ));
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        { views }
       </View>
     );
   }
@@ -41,18 +53,7 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
+
+export default App;
