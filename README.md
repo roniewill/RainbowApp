@@ -5,3 +5,6 @@
 ### Component Lifecycle
 ### States
 ### setInterval
+
+## --- PREVIEW ---
+![RAINBOW APP](https://github.com/roniewill/RainbowApp/blob/master/img/RainbowApp.gif | =100X250)
