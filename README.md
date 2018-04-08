@@ -7,4 +7,4 @@
 ### setInterval
 
 ## --- PREVIEW ---
-![RainbowApp](https://github.com/roniewill/RainbowApp/blob/master/img/RainbowApp.gif)
+![RainbowApp](https://github.com/roniewill/RainbowApp/blob/master/img/RainbowApp.gif){:height="400px" width="150px"}
