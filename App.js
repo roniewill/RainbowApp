@@ -18,13 +18,13 @@ class App extends Component {
 
     this.state = {
       colors: [
-        '#FF0000',
-        '#FF7F00',
-        '#FFFF00',
-        '#00FF00',
-        '#0000FF',
-        '#4B0082',
-        '#9400D3'
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'violet'
       ]
     }
   };
@@ -38,9 +38,8 @@ class App extends Component {
   }
 
   render() {
-    const timestamp = Date.now();
     const views = this.state.colors.map( color => (
-      <View key={ timestamp } style={{ flex: 1, backgroundColor: color }} />
+      <View key={ color } style={[styles.container, styles[`${color}Bg`]]} />
     ));
 
     return (
@@ -52,9 +51,14 @@ class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: { flex: 1 },
+  redBg: { backgroundColor: '#FF0000' },
+  orangeBg: { backgroundColor: '#FF7F00' },
+  yellowBg: { backgroundColor: '#FFFF00' },
+  greenBg: { backgroundColor: '#00FF00' },
+  blueBg: { backgroundColor: '#0000FF' },
+  indigoBg: { backgroundColor: '#4B0082' },
+  violetBg: { backgroundColor: '#9400D3' },
 });
 
 export default App;
